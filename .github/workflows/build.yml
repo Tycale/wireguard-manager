@@ -23,7 +23,7 @@ jobs:
 
       - name: Build linux x86_64 binary
         run: |
-          cd app && GOOS=linux GOARCH=amd64 go build -ldflags '-extldflags "-fno-PIC -static"' -buildmode pie -o ../wgm_Linux_x86_64 && cd -
+          cd app && GOOS=linux GOARCH=amd64 go build -ldflags '-extldflags "-fno-PIC -static"' -buildmode pie -tags 'osusergo netgo static_build' -o ../wgm_Linux_x86_64 && cd -
 
       - name: Build darwin/arm binary
         run: |
