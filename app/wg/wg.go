@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
+	"os/user"
 	"path/filepath"
 	"strings"
 
@@ -18,9 +19,22 @@ import (
 // CheckConfigFiles checks for '.conf' files in the '${home}/.wg' directory.
 // It returns a slice of the filenames (without the '.conf' extension) and any error encountered.
 func CheckConfigFiles() ([]string, error) {
-	home, err := os.UserHomeDir()
-	if err != nil {
-		return nil, err
+	var home string
+	var err error
+
+	sudoUser := os.Getenv("SUDO_USER")
+	if sudoUser != "" {
+		// Get home from user executing sudo
+		u, lookupErr := user.Lookup(sudoUser)
+		if lookupErr != nil {
+			return nil, lookupErr
+		}
+		home = u.HomeDir
+	} else {
+		home, err = os.UserHomeDir()
+		if err != nil {
+			return nil, err
+		}
 	}
 
 	configDir := filepath.Join(home, ".wg")
