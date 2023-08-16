@@ -23,15 +23,15 @@ jobs:
 
       - name: Build linux x86 binary
         run: |
-          cd app && GOOS=linux GOARCH=amd64 go build -o ../linux/x86/wgm && cd -
+          cd app && GOOS=linux GOARCH=amd64 go build -o ../wgm_linux_x86 && cd -
 
       - name: Build darwin/arm binary
         run: |
-          cd app && GOOS=darwin GOARCH=arm64 go build -o ../darwin/arm/wgm && cd -
+          cd app && GOOS=darwin GOARCH=arm64 go build -o ../wgm_darwin_arm64 && cd -
 
       - name: Build darwin/intel binary
         run: |
-          cd app && GOOS=darwin GOARCH=amd64 go build -o ../darwin/intel/wgm && cd -
+          cd app && GOOS=darwin GOARCH=amd64 go build -o ../wgm_darwin_x86 && cd -
 
       - name: Bump version and push tag
         id: tag_version
@@ -46,6 +46,7 @@ jobs:
           tag_name: ${{ steps.tag_version.outputs.new_tag }}
           name: wireguard-manager
           files: |
-            linux/x86/wgm
-            darwin/arm/wgm
-            darwin/intel/wgm
+            wgm_linux_x86
+            wgm_darwin_arm64
+            wgm_darwin_x86
+
