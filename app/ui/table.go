@@ -45,7 +45,7 @@ func CreateRows(files []string) []TableData {
 
 func initRow(env string) TableData {
 	textView := tview.NewTextView()
-	textView.Write([]byte("Infos for " + env))
+	textView.Write([]byte("Infos for " + env + "\n"))
 	textView.SetScrollable(true)
 
 	row := TableData{

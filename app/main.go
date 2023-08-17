@@ -3,7 +3,9 @@ package main
 import (
 	"github.com/rivo/tview"
 
+	"fmt"
 	"log"
+	"os/exec"
 	"time"
 
 	"github.com/tycale/wireguard-manager/app/ui"
@@ -12,6 +14,10 @@ import (
 
 func main() {
 	AutoSu()
+
+	if _, err := exec.LookPath("wg-quick"); err != nil {
+		fmt.Println("`wg-quick` command not found in PATH!")
+	}
 
 	app := tview.NewApplication()
 

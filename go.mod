@@ -9,7 +9,7 @@ require (
 	github.com/derekparker/trie v0.0.0-20221221181808-1424fce0c981 // indirect
 	github.com/gdamore/encoding v1.0.0 // indirect
 	github.com/gdamore/tcell v1.4.0 // indirect
-	github.com/gdamore/tcell/v2 v2.6.0 // indirect
+	github.com/gdamore/tcell/v2 v2.6.0
 	github.com/go-delve/delve v1.21.0 // indirect
 	github.com/go-delve/liner v1.2.3-0.20220127212407-d32d89dd2a5d // indirect
 	github.com/google/go-dap v0.10.0 // indirect
@@ -20,7 +20,7 @@ require (
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.19 // indirect
 	github.com/mattn/go-runewidth v0.0.15 // indirect
-	github.com/rivo/tview v0.0.0-20230621164836-6cc0565babaf // indirect
+	github.com/rivo/tview v0.0.0-20230621164836-6cc0565babaf
 	github.com/rivo/uniseg v0.4.4 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
 	github.com/shurcooL/sanitized_anchor_name v1.0.0 // indirect
