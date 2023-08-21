@@ -1,4 +1,4 @@
-.PHONY: build clean fmt run debug rundebug
+.PHONY: build clean fmt run debug rundebug install
 
 # Variables
 BINARY = wgm
@@ -32,3 +32,5 @@ rundebug: debug
 	@echo "Running $(BINARY) with Delve..."
 	@dlv exec ./$(BINARY)
 
+install: build
+	install -m 557 $(BINARY) /usr/local/bin/
